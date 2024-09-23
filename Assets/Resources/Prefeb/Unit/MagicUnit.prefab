@@ -3047,7 +3047,10 @@ MonoBehaviour:
   unitSpeed: 0.5
   unitDamage: 4
   vicinityUnit: 0
-  rangedAttackObj: []
+  rangedAttackObj:
+  - {fileID: 7138916361236119448, guid: c04d7d9ca1195ee4faed972308a7e153, type: 3}
+  - {fileID: 7138916361236119448, guid: f4a28eef22e1ca442907cbf3bbc962fc, type: 3}
+  rangedAttack: {fileID: 0}
   unitAttackDistance: 3
 --- !u!95 &6173684131939988201
 Animator:

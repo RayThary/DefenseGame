@@ -5,6 +5,7 @@ using UnityEngine;
 public class DustMove : MonoBehaviour
 {
     private ParticleSystem _particle;
+    [SerializeField] private float moveSpeed = 0.2f;
     void Start()
     {
         _particle = GetComponent<ParticleSystem>();
@@ -16,5 +17,9 @@ public class DustMove : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.right * Time.deltaTime*0.2f;
+    }
+    public void SetMoveSpeed(float _speed)
+    {
+        moveSpeed = _speed;
     }
 }

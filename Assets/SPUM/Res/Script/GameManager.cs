@@ -19,6 +19,14 @@ public class GameManager : MonoBehaviour
     private Transform unitObjectParent;
     public Transform GetUnitObjectParent { get { return unitObjectParent; } }
 
+    private int aiLevel = 1;
+    public int SetAiLevel { set { aiLevel = value; } }
+    public int GetAiLevel { get { return aiLevel; } }
+
+    private bool GameStart = false;
+    public bool SetGameStart { set { GameStart = value; } }
+    public bool GetGameStart { get { return GameStart; } }
+
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] protected GameObject backGroundObj;
     private float bgTimer = 0;
@@ -37,6 +45,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        bgTimer = 99;
         redSpawnTrs = transform.GetChild(0);
         blueSpawnTrs = transform.GetChild(1);
         unitParent = transform.GetChild(2);
@@ -69,6 +78,8 @@ public class GameManager : MonoBehaviour
         {
             GameObject obj = Instantiate(backGroundObj);
             obj.transform.position = new Vector3(-13, _rY, 0);
+            float dustSpeed = Random.Range(0.05f, 0.2f);
+            obj.GetComponent<DustMove>().SetMoveSpeed(dustSpeed);
             bgCreateTime = Random.Range(10, 20);
             bgTimer = 0;
         }
