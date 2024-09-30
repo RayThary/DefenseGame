@@ -160,4 +160,6 @@ public class UiTitle : MonoBehaviour
             hardClearCheck.gameObject.SetActive(true);
         }
     }
+
+
 }

@@ -34,8 +34,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private List<AudioClip> clips = new List<AudioClip>();
     [SerializeField] private int poolingCount = 50;
 
-    public bool test;
-
 
     private void Awake()
     {
@@ -56,25 +54,7 @@ public class SoundManager : MonoBehaviour
         initPoolingClip();
     }
 
-    private void Start()
-    {
 
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (test)
-            {
-                SFXCreate(Clips.Defeat, 0.3f, 0, transform);
-            }
-            else
-            {
-            SFXCreate(Clips.Victory, 0.3f, 0, transform);
-
-            }
-        }   
-    }
     private void initPoolingClip()
     {
         for (int i = 0; poolingCount > i; i++)

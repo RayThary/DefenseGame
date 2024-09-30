@@ -64,6 +64,8 @@ public class UnitBuy : MonoBehaviour
             buyUnit.GetComponent<Unit>().SetUnitCamp(Unit.eUnitCamp.Blue);
             Transform spawnTrs = GameManager.Instance.GetBlueSpawnTrs;
             buyUnit.transform.position = spawnTrs.position;
+            
+            SoundManager.instance.SFXCreate(SoundManager.Clips.Buy, transform);
             fillImage.fillAmount = 1;
             btn.enabled = false;
         }
@@ -75,6 +77,7 @@ public class UnitBuy : MonoBehaviour
         {
             GameManager.Instance.MinusCost(buyCost);
             GameManager.Instance.CostSpeedUpgrade();
+            SoundManager.instance.SFXCreate(SoundManager.Clips.Upgrade, transform);
             buyCost += 20;
             costText.text = buyCost.ToString();
             fillImage.fillAmount = 1;

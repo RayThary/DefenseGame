@@ -35,7 +35,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private bool vicinityUnit = false;
     //원거리 유닛의공격 이펙트
     [SerializeField] private List<GameObject> rangedAttackObj = new List<GameObject>();
-    [SerializeField]private GameObject rangedAttack;
+    [SerializeField] private GameObject rangedAttack;
     //공격 사거리
     [SerializeField] private float unitAttackDistance;
     private float enemyUnitDistance;
@@ -144,10 +144,18 @@ public class Unit : MonoBehaviour
 
             if (unitCheck.collider != null || baseCheck.collider != null)
             {
-                enemyUnitDistance = unitCheck.distance;
+                if (baseCheck.collider != null && unitCheck.collider != null)
+                {
+                    enemyUnitDistance = unitCheck.distance;
+                }
+                else if (unitCheck.collider == null)
+                {
+                    enemyUnitDistance = baseCheck.distance + 1.5f;
+                }
+
                 anim.SetBool("Attack", true);
                 noMove = true;
-                
+
             }
             else
             {
@@ -172,7 +180,14 @@ public class Unit : MonoBehaviour
             RaycastHit2D baseCheck = Physics2D.Raycast(transform.position, Vector2.right, rayDistance, LayerMask.GetMask("RedBase"));
             if (unitCheck.collider != null || baseCheck.collider != null)
             {
-                enemyUnitDistance = unitCheck.distance;
+                if (baseCheck.collider != null && unitCheck.collider != null)
+                {
+                    enemyUnitDistance = unitCheck.distance;
+                }
+                else if (unitCheck.collider == null)
+                {
+                    enemyUnitDistance = baseCheck.distance + 1.5f;
+                }
                 anim.SetBool("Attack", true);
                 noMove = true;
             }
@@ -285,12 +300,12 @@ public class Unit : MonoBehaviour
 
             }
         }
-        else if(unitType == eUnitType.Arrow)
+        else if (unitType == eUnitType.Arrow)
         {
             if (unitCamp == eUnitCamp.Red)
             {
                 targetVec.x -= 0.3f;
-                
+
             }
             else
             {
@@ -303,6 +318,7 @@ public class Unit : MonoBehaviour
         att.transform.position = targetVec;
         att.GetComponent<UnitAttack>().SetUnitCampCheck(this);
         soundCheck = true;
+
     }
 
     private void unitDeathDestroy()

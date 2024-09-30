@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] protected GameObject backGroundObj;
     private float bgTimer = 0;
     private int bgCreateTime = 0;
+
+    private bool timeStopCheck = false;
+    public bool SetTimeStopCheck { set { timeStopCheck = value; } }
+    public bool GetTimeStopCheck { get { return timeStopCheck; } }
     private void Awake()
     {
         if (Instance == null)

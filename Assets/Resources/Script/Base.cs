@@ -48,12 +48,10 @@ public class Base : MonoBehaviour
                     break;
             }
             destroyCheck = true;
+            GameManager.Instance.SetTimeStopCheck = true;
             Time.timeScale = 0;
         }
     }
-
-
-
 
     public void BaseHit(float _damage)
     {
