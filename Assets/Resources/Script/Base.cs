@@ -37,7 +37,7 @@ public class Base : MonoBehaviour
             SpriteRenderer spr = GetComponent<SpriteRenderer>();
             spr.sprite = baseDestroySprite;
             baseDestroyTrs.gameObject.SetActive(true);
-            SoundManager.instance.bgSoundPause();
+            SoundManager.instance.bgSoundPause(true);
             switch (baseDestroyTrs.name)
             {
                 case "Defeat":

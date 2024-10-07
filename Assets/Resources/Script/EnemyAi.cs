@@ -15,13 +15,16 @@ public class EnemyAi : MonoBehaviour
     private List<float> lBuyCost = new List<float>();
     private List<GameObject> lBuyUnit = new List<GameObject>();
 
+    private int maxBuyUnit = 0;
+
     private bool unitCheck = false;
     private int randomUnit;
 
-    private float costUpCycleTime = 90;
+    private float costUpCycleTime = 30;
+
     private int costUpCheck = 0;
     private float timer = 0;
-    public bool test = false;
+  
 
     void Start()
     {
@@ -31,15 +34,13 @@ public class EnemyAi : MonoBehaviour
             lBuyCost.Add(unitCostParent.transform.GetChild(i).GetComponent<UnitBuy>().GetBuyCost);
             lBuyUnit.Add(unitCostParent.transform.GetChild(i).GetComponent<UnitBuy>().GetUnit);
         }
+        maxBuyUnit = 1;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (test)
-        {
-            return;
-        }
         if (GameManager.Instance.GetGameStart == true && levelCheck == false)
         {
             int _ailevel = GameManager.Instance.GetAiLevel;
@@ -77,6 +78,10 @@ public class EnemyAi : MonoBehaviour
         {
             if (costUpCheck == 3)
             {
+                if (maxBuyUnit < lBuyUnit.Count)
+                {
+                    maxBuyUnit++;
+                }
                 return;
             }
             costUpSpeed++;
@@ -90,7 +95,7 @@ public class EnemyAi : MonoBehaviour
     {
         if (unitCheck == false)
         {
-            randomUnit = Random.Range(0, lBuyCost.Count);
+            randomUnit = Random.Range(0, maxBuyUnit);
             unitCheck = true;
         }
         else

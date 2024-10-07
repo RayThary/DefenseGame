@@ -76,6 +76,7 @@ public class UnitAttack : MonoBehaviour
             {
                 transform.localScale = new Vector3(-0.3f, 0.3f, 1);
             }
+            Destroy(gameObject, 1.5f);
         }
     }
 

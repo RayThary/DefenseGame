@@ -25,6 +25,7 @@ public class SoundManager : MonoBehaviour
     //오디오믹서와 배경음악을 넣어줄것
     [SerializeField] private AudioMixer m_mixer;
     [SerializeField] private AudioClip m_BackGroundClip;
+    [SerializeField] private float m_bgmStartDealy = 0.5f;
 
     private Transform pollingObjParentTrs;//풀링오브젝트의 부모위치
 
@@ -67,7 +68,7 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator bgStart()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(m_bgmStartDealy);
 
         bgSoundPlay(m_BackGroundClip);
     }
@@ -133,7 +134,7 @@ public class SoundManager : MonoBehaviour
     private void removePooling(GameObject _obj)
     {
 
-        //자식의개수가 지정한것보다 부족할시 자식으로 다시넣어준다
+        //본인이 없는경우 채워넣어주고 만약 자식의 개수가 더많다면 삭제해준다.
         if (pollingObjParentTrs.childCount < poolingCount)
         {
             if (_obj == null)
@@ -144,6 +145,7 @@ public class SoundManager : MonoBehaviour
             _obj.transform.SetParent(pollingObjParentTrs);
             _obj.SetActive(false);
             _obj.transform.position = Vector3.zero;
+            _obj.GetComponent<AudioSource>().clip = null;
 
         }
         else
@@ -164,9 +166,21 @@ public class SoundManager : MonoBehaviour
         m_backGroundSource.Play();
     }
 
-    public void bgSoundPause()
+    /// <summary>
+    /// 사운드 멈추기 
+    /// </summary>
+    /// <param name="_value"></param>
+    public void bgSoundPause(bool _value)
     {
-        m_backGroundSource.Pause();
+        if (_value)
+        {
+            m_backGroundSource.Pause();
+        }
+        else
+        {
+            m_backGroundSource.time = 0;
+            m_backGroundSource.UnPause();
+        }
     }
 
 

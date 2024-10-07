@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 8917089706195171508, guid: 6d1a5b86f04154f4eb2d4aed6d44e475, type: 3}
-  buyCost: 30
+  buyCost: 35
   unitBuyCoolTime: 15
   isBase: 0
 --- !u!222 &509595950
@@ -4170,8 +4170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 7154926234616780026, guid: 53eb41bca9e3d0d41a9152944afbe6f5, type: 3}
-  buyCost: 20
-  unitBuyCoolTime: 12
+  buyCost: 25
+  unitBuyCoolTime: 10
   isBase: 0
 --- !u!222 &915094818
 CanvasRenderer:
@@ -4288,6 +4288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_mixer: {fileID: 24100000, guid: 17a2e993d8591f14abcec0c78b0c5cc5, type: 2}
   m_BackGroundClip: {fileID: 8300000, guid: 070ad4920d2fcbc43940fe99bc6d6bec, type: 3}
+  m_bgmStartDealy: 0.5
   SFXsource: {fileID: 1070990142477686622, guid: e797558b4b9ff3b45988f3e857fa221d, type: 3}
   clips:
   - {fileID: 8300000, guid: bafe8b311a885ed46843e91353ebb18a, type: 3}
@@ -5094,8 +5095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 1247123221944919360, guid: d689defdde638354cbbafad48c87a086, type: 3}
-  buyCost: 10
-  unitBuyCoolTime: 5
+  buyCost: 15
+  unitBuyCoolTime: 3
   isBase: 0
 --- !u!222 &990923365
 CanvasRenderer:
@@ -6666,7 +6667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitCostParent: {fileID: 1520535965}
-  test: 0
 --- !u!1 &1432762757
 GameObject:
   m_ObjectHideFlags: 0
@@ -7429,7 +7429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 8236645773444863453, guid: 6285806ecf6f6104180d8537a830543a, type: 3}
-  buyCost: 15
+  buyCost: 20
   unitBuyCoolTime: 5
   isBase: 0
 --- !u!222 &1530931693

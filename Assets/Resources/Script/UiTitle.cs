@@ -63,6 +63,24 @@ public class UiTitle : MonoBehaviour
 
         victoryBtn.onClick.AddListener(victoyReturnMain);
         defeatBtn.onClick.AddListener(defeatReturnButton);
+
+        if (PlayerPrefs.GetInt("Clear1") == 1)
+        {
+
+            easyClearCheck.gameObject.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Clear2") == 1)
+        {
+
+            normalClearCheck.gameObject.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Clear3") == 1)
+        {
+
+            hardClearCheck.gameObject.SetActive(true);
+        }
     }
 
     private void easyButton()
@@ -116,6 +134,7 @@ public class UiTitle : MonoBehaviour
 
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(0);
+        SoundManager.instance.bgSoundPause(false);
         victory.gameObject.SetActive(false);
         title.gameObject.SetActive(true);
     }
@@ -125,39 +144,15 @@ public class UiTitle : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(0);
+        SoundManager.instance.bgSoundPause(false);
         defeat.gameObject.SetActive(false);
         title.gameObject.SetActive(true);
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             PlayerPrefs.DeleteAll();
-        }
-
-        if (PlayerPrefs.GetInt("Clear1") == 1)
-        {
-            if (easyClearCheck.gameObject.activeSelf == true)
-            {
-                return;
-            }
-            easyClearCheck.gameObject.SetActive(true);
-        }
-        else if (PlayerPrefs.GetInt("Clear2") == 1)
-        {
-            if (normalClearCheck.gameObject.activeSelf == true)
-            {
-                return;
-            }
-            normalClearCheck.gameObject.SetActive(true);
-        }
-        else if (PlayerPrefs.GetInt("Clear3") == 1)
-        {
-            if (hardClearCheck.gameObject.activeSelf == true)
-            {
-                return;
-            }
-            hardClearCheck.gameObject.SetActive(true);
         }
     }
 

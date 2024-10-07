@@ -152,6 +152,10 @@ public class Unit : MonoBehaviour
                 {
                     enemyUnitDistance = baseCheck.distance + 1.5f;
                 }
+                else
+                {
+                    enemyUnitDistance = unitCheck.distance;
+                }
 
                 anim.SetBool("Attack", true);
                 noMove = true;
@@ -188,6 +192,11 @@ public class Unit : MonoBehaviour
                 {
                     enemyUnitDistance = baseCheck.distance + 1.5f;
                 }
+                else
+                {
+                    enemyUnitDistance = unitCheck.distance;
+                }
+
                 anim.SetBool("Attack", true);
                 noMove = true;
             }
@@ -243,7 +252,10 @@ public class Unit : MonoBehaviour
             box2d.enabled = false;
             if (vicinityUnit)
             {
-                box2dAttack.enabled = false;
+                if (box2dAttack != null)
+                {
+                    box2dAttack.enabled = false;
+                }
             }
             noMove = true;
             anim.SetTrigger("Death");

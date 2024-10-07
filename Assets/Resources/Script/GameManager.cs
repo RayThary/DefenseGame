@@ -56,12 +56,17 @@ public class GameManager : MonoBehaviour
         unitParent = transform.GetChild(2);
         unitObjectParent = transform.GetChild(3);
         bgCreateTime = Random.Range(10, 20);
+
     }
 
     void Update()
     {
         costAdd();
         gameBackGround();
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     private void costAdd()
