@@ -4300,7 +4300,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f6fd7d766e94d09429afb73b66089d82, type: 3}
   - {fileID: 8300000, guid: cc601d5912ae01540b1368b69b4000fe, type: 3}
   - {fileID: 8300000, guid: d3ad199125032854087bf63abdec798a, type: 3}
-  poolingCount: 50
+  poolingCount: 70
 --- !u!4 &932540350
 Transform:
   m_ObjectHideFlags: 0
