@@ -34,7 +34,7 @@ public class EnemyAi : MonoBehaviour
             lBuyCost.Add(unitCostParent.transform.GetChild(i).GetComponent<UnitBuy>().GetBuyCost);
             lBuyUnit.Add(unitCostParent.transform.GetChild(i).GetComponent<UnitBuy>().GetUnit);
         }
-        maxBuyUnit = 1;
+        maxBuyUnit = 2;
 
     }
 
